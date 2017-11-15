@@ -40,7 +40,8 @@ namespace proairetiki4
         {
             Form2 game = new Form2(dif);
             game.Show();
-            //this.Hide();
+            game.Closed += (s, args) => this.Close();
+            this.Hide();
            
         //disable th forma 1 etsi wste na mi mporei na anoiksei 
         //polles fores to game patwntas ta koumpia.

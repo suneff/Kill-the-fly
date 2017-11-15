@@ -37,12 +37,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::proairetiki4.Properties.Resources.aflyresize;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.InitialImage = global::proairetiki4.Properties.Resources.Testing;
-            this.pictureBox1.Location = new System.Drawing.Point(156, 126);
+            this.pictureBox1.Image = global::proairetiki4.Properties.Resources.migoskotostra;
+            this.pictureBox1.Location = new System.Drawing.Point(300, 135);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 84);
+            this.pictureBox1.Size = new System.Drawing.Size(82, 51);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);

@@ -90,13 +90,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\aflyresize.png" />
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\migoskotostra.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Testing.jpg" />
+    <Content Include="Resourses\aflyresize.png" />
+    <Content Include="Resourses\migoskotostra.png" />
+    <None Include="Resourses\skotostra - Copy.png" />
+    <Content Include="Resourses\skotostra.png" />
+    <Content Include="Resourses\Testing.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
