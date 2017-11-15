@@ -38,14 +38,11 @@ namespace proairetiki4
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //Form1.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             randomPosition();
-            //timer1.Enabled = false;
-            //Location(r.Next(0, this.Width), r.Next(0, this.Height));
         }
         private void randomPosition()
         {
@@ -77,7 +74,6 @@ namespace proairetiki4
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            //proswrina
             count++;
             label2.Text = (60 - count).ToString() + " seconds left" ;
             if (count == 60)
