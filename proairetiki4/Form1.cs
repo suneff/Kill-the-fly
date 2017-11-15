@@ -38,11 +38,11 @@ namespace proairetiki4
 
         private void createForm()
         {
-            Form2 game = new Form2(dif);
+            Form2 game = new Form2(dif, this);
             game.Show();
             game.Closed += (s, args) => this.Show(); //otan kleinei to game kleinei emfanizetai h forma1
             this.Hide();
-    }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -53,6 +53,11 @@ namespace proairetiki4
         {
             dif = 1;
             createForm();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //leaderboard form3
         }
     }
 }
