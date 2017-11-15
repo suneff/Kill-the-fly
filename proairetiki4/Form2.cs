@@ -12,14 +12,20 @@ namespace proairetiki4
 {
     public partial class Form2 : Form
     {
+        Random r;
+        int score=0;
+        int dif;
         public Form2(int dif) //pernaw to difficulty sto game
         {
             InitializeComponent();
+            this.dif = dif;
+            timer1.Interval = timer1.Interval / dif;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            r = new Random();
+            timer1.Enabled = true;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -30,6 +36,35 @@ namespace proairetiki4
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Form1.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            randomPosition();
+            //timer1.Enabled = false;
+            //Location(r.Next(0, this.Width), r.Next(0, this.Height));
+        }
+        private void randomPosition()
+        {
+            Point p = new Point(r.Next(0, this.Width - pictureBox1.Width), r.Next(0, this.Height - pictureBox1.Height));
+            pictureBox1.Location = p;
+        }
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            timer1.Stop();
+            score += dif * 10;
+            textBox1.Text = score.ToString();
+            randomPosition();
+            timer1.Start();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
