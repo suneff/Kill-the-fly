@@ -61,7 +61,7 @@ namespace proairetiki4
         {
             timer1.Stop();
             score += dif * 10;
-            textBox1.Text = score.ToString();
+            label1.Text = score.ToString();
             randomPosition();
             timer1.Start();
         }
@@ -79,7 +79,7 @@ namespace proairetiki4
         {
             //proswrina
             count++;
-            textBox2.Text = (60 - count).ToString() + " seconds left" ;
+            label2.Text = (60 - count).ToString() + " seconds left" ;
             if (count == 60)
             {
                 timer1.Stop();

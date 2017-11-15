@@ -73,6 +73,16 @@ namespace proairetiki4.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bkimage {
+            get {
+                object obj = ResourceManager.GetObject("bkimage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap migoskotostra {
             get {
                 object obj = ResourceManager.GetObject("migoskotostra", resourceCulture);

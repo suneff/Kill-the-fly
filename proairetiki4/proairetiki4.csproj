@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resourses\aflyresize.png" />
+    <Content Include="Resourses\bkimage.jpg" />
     <Content Include="Resourses\migoskotostra.png" />
     <None Include="Resourses\skotostra - Copy.png" />
     <Content Include="Resourses\skotostra.png" />
