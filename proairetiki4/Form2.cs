@@ -15,6 +15,7 @@ namespace proairetiki4
         Random r;
         int score=0;
         int dif;
+        int count = 0;
         public Form2(int dif) //pernaw to difficulty sto game
         {
             InitializeComponent();
@@ -26,6 +27,8 @@ namespace proairetiki4
         {
             r = new Random();
             timer1.Enabled = true;
+            timer2.Enabled = true;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -65,6 +68,27 @@ namespace proairetiki4
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            //proswrina
+            count++;
+            textBox2.Text = (60 - count).ToString() + " seconds left" ;
+            if (count == 60)
+            {
+                timer1.Stop();
+                timer2.Stop();
+                pictureBox1.Enabled = false;
+                pictureBox1.Hide();
+
+            }
+
         }
     }
 }
