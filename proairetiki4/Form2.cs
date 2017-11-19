@@ -18,9 +18,10 @@ namespace proairetiki4
         Random r;
         int time=60;
         int score=0;
-        int dif;
+        int dif=1;
         int count = 0;
         int dx=0, dy=0;
+        int maxspeed;
         Form1 mainMenu;
         /* name conflict,using class User insted
         DataTable scores = new DataTable();
@@ -31,6 +32,7 @@ namespace proairetiki4
             this.dif = dif;
             this.mainMenu = mainMenu;
             timer1.Interval = timer1.Interval / dif;
+            maxspeed = 10 * dif;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -69,8 +71,8 @@ namespace proairetiki4
         private void randomPosition()
         {
             pictureBox1.Hide();
-            dx =r.Next(-20, 20);
-            dy = r.Next(-20, 20);
+            dx =r.Next(-maxspeed, maxspeed);
+            dy = r.Next(-maxspeed, maxspeed);
             Point p = new Point(r.Next(0, this.Width - pictureBox1.Width), r.Next(0, this.Height - pictureBox1.Height));
             pictureBox1.Location = p;
             pictureBox1.Show();
