@@ -25,7 +25,7 @@ namespace proairetiki4
                 using (StreamReader r = new StreamReader("Scores.json"))
                 {
                     string json = r.ReadToEnd();
-                    List<User> Users = JsonConvert.DeserializeObject<List<User>>(json);
+                    List<User> Users = JsonConvert.DeserializeObject<List<User>>(json).OrderByDescending(o => o.score).ToList();
                     foreach (User user in Users)
                     {
                         richTextBox1.Text += user.name + " score:" + user.score +" dif:"+user.dif+" time:"+user.time+ "\n";

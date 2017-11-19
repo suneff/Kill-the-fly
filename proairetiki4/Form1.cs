@@ -58,6 +58,10 @@ namespace proairetiki4
         private void button4_Click(object sender, EventArgs e)
         {
             //leaderboard form3
+            Form3 scoreboard = new Form3();//den pernao tpt gt 8a diabazi to arxio apo thn arxi
+            scoreboard.Show();
+            scoreboard.Closed += (s, args) => this.Show(); //otan kleinei to scoreboard kleinei emfanizetai h forma1
+            this.Hide();
         }
     }
 }
