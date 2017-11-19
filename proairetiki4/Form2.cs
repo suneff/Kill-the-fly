@@ -8,18 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
-
+using System.IO;
+using Newtonsoft.Json;
 namespace proairetiki4
 {
+
     public partial class Form2 : Form
     {
         Random r;
+        int time=60;
         int score=0;
         int dif;
         int count = 0;
         Form1 mainMenu;
+        /* name conflict,using class User insted
         DataTable scores = new DataTable();
-
+        */
         public Form2(int dif, Form1 mainMenu) //pernaw to difficulty sto game
         {
             InitializeComponent();
@@ -91,8 +95,8 @@ namespace proairetiki4
         private void timer2_Tick(object sender, EventArgs e)
         {
             count++;
-            label2.Text = (60 - count).ToString() + " seconds left" ;
-            if (count == 60)
+            label2.Text = (time - count).ToString() + " seconds left" ;
+            if (count == time)
             {
                 timer1.Stop();
                 timer2.Stop();
@@ -151,15 +155,38 @@ namespace proairetiki4
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != null && textBox1.Text != " " && textBox1.Text.Length<=10)//an exei valei o xrhstus username, xreiazetai veltiwsh o elegxos
+            string tempText = textBox1.Text;//gia tin periptosi pou exei pola kena , oxi mono ena
+            if (textBox1.Text != null && tempText.Replace(" ", "") != "" && textBox1.Text.Length<=10)//an exei valei o xrhstus username, xreiazetai veltiwsh o elegxos
             {
+                List<User> Users;//orise mia lista users
+                if (File.Exists("Scores.json"))//an iparxi to arxio
+                {
+                    
+                    using (StreamReader r = new StreamReader("Scores.json"))//energopiise stream yia Read sto Scores.json
+                    {
+                        string json = r.ReadToEnd();//diabase to arxio
+                        Users = JsonConvert.DeserializeObject<List<User>>(json);//metetrepse to periexomeno toy se lista apo User
+                        Users.Add(new User(score, time, dif, textBox1.Text));//pros8ese to kenourgio user
+                        
+                    }
+                    string output = JsonConvert.SerializeObject(Users);//metetrepse tin lista se json
+                    File.WriteAllText("Scores.json", output);//apo8ikefse to json sto arxio
+                }
+                else//an den uparxi to arxio , paralipti tin anagnosi tou
+                {
+                    Users = new List<User>();
+                    Users.Add(new User(score,time,dif, textBox1.Text));
+                    string output = JsonConvert.SerializeObject(Users, Formatting.Indented);
+                    File.WriteAllText("Scores.json", output);
+                }
                 //https://social.msdn.microsoft.com/Forums/vstudio/en-US/13d6d2ee-2252-4325-a2c3-70412653394f/two-dimensional-arraylist?forum=csharpgeneral
+                /* 
                 scores.Columns.Add("Nickname", typeof(string));
                 scores.Columns.Add("Score", typeof(int));
       
                 scores.Rows.Add(new object[] { textBox1.Text.ToString(), score});
-
-                Form3 scoreboard = new Form3(scores);
+                */
+                Form3 scoreboard = new Form3();//den pernao tpt gt 8a diabazi to arxio apo thn arxi
                 scoreboard.Show();
                 scoreboard.Closed += (s, args) => mainMenu.Show(); //otan kleinei to scoreboard kleinei emfanizetai h forma1
                 this.Hide();
@@ -168,6 +195,20 @@ namespace proairetiki4
             {
                 MessageBox.Show("You need to enter a valid nickname up to 10 characters!");
             }
+        }
+    }
+    public class User
+    {
+        public int score { get; set; }
+        public int time { get; set; }
+        public int dif { get; set; }
+        public string name { get; set; }
+        public User(int score, int time, int dif, string name)
+        {
+            this.name = name;
+            this.score = score;
+            this.dif = dif;
+            this.time = time;
         }
     }
 }
