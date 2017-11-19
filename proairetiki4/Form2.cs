@@ -20,6 +20,7 @@ namespace proairetiki4
         int score=0;
         int dif;
         int count = 0;
+        int dx=0, dy=0;
         Form1 mainMenu;
         /* name conflict,using class User insted
         DataTable scores = new DataTable();
@@ -37,6 +38,7 @@ namespace proairetiki4
             r = new Random();
             timer1.Enabled = true;
             timer2.Enabled = true;
+            timer3.Enabled = true;
             button1.Hide();
             button1.Enabled = false;
             button4.Hide();
@@ -56,15 +58,19 @@ namespace proairetiki4
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
             randomPosition();
         }
         private void randomPosition()
         {
             pictureBox1.Hide();
+            dx =r.Next(-20, 20);
+            dy = r.Next(-20, 20);
             Point p = new Point(r.Next(0, this.Width - pictureBox1.Width), r.Next(0, this.Height - pictureBox1.Height));
             pictureBox1.Location = p;
             pictureBox1.Show();
@@ -151,6 +157,12 @@ namespace proairetiki4
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             //kati paizei me to textbox, to emfanizei transparent
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            Point p = new Point(pictureBox1.Location.X+dx, pictureBox1.Location.Y+dy);
+            pictureBox1.Location = p;
         }
 
         private void button2_Click(object sender, EventArgs e)
