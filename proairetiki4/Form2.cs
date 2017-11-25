@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Collections;
 using System.IO;
 using Newtonsoft.Json;
+using System.Media;
+using System.Threading; 
 namespace proairetiki4
 {
 
@@ -46,6 +48,8 @@ namespace proairetiki4
                 this.Flys[i].TabStop = false;
                 this.Flys[i].Click += new System.EventHandler(this.pictureBox1_Click_1);
                 this.Flys[i].MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+                this.Flys[i].MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+                this.Flys[i].MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
                 this.Flys[i].Show();
                 this.Flys[i].Enabled = true;
                 //((System.ComponentModel.ISupportInitialize)(this.Flys[i])).BeginInit();
@@ -95,8 +99,11 @@ namespace proairetiki4
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
             randomPosition();
+            new System.Threading.Thread(() => {
+                SoundPlayer snd = new SoundPlayer(Properties.Resources.Fly_sound_10);
+                snd.Play();
+            }).Start();
         }
         private void randomPosition(int idofFly=-1)
         {
@@ -136,7 +143,21 @@ namespace proairetiki4
             label1.Text = score.ToString() + " points";
             randomPosition(int.Parse(tempFly.Name.Substring(10))-2);
             timer1.Start();
-            
+            new System.Threading.Thread(() => {
+                SoundPlayer snd2 = new SoundPlayer(Properties.Resources.Squish_Sound_Effects_3);
+                snd2.Play();
+            }).Start();
+
+        }
+        private void pictureBox1_MouseDown(object sender, EventArgs e)
+        {
+            Cursor cun = new Cursor(Properties.Resources.skotostra2.Handle);
+            this.Cursor = cun;
+        }
+        private void pictureBox1_MouseUp(object sender, EventArgs e)
+        {
+            Cursor cun = new Cursor(Properties.Resources.migoskotostra101.Handle);
+            this.Cursor = cun;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -218,8 +239,29 @@ namespace proairetiki4
             {
                 Point p = new Point(Flys[i].Location.X + Flys[i].dx, Flys[i].Location.Y + Flys[i].dy);
                 Flys[i].Location = p;
+                if ((Flys[i].Location.X + Flys[i].Size.Width / 2 < 0)|| (Flys[i].Location.Y + Flys[i].Size.Height / 2 < 0)|| (Flys[i].Location.Y + Flys[i].Size.Height / 2 < 0)|| (Flys[i].Location.Y + Flys[i].Size.Height / 2 > this.Size.Height)|| (Flys[i].Location.X + Flys[i].Size.Width / 2 > this.Size.Width))
+                {
+                    randomPosition(i);
+                }
             }
         }
+
+        private void Form2_MouseDown(object sender, MouseEventArgs e)
+        {
+            Cursor cun = new Cursor(Properties.Resources.skotostra2.Handle);
+            this.Cursor = cun;
+            new System.Threading.Thread(() => {
+                SoundPlayer snd = new SoundPlayer(Properties.Resources.Quack_Sound_Effect);
+                snd.Play();
+            }).Start();
+        }
+
+        private void Form2_MouseUp(object sender, MouseEventArgs e)
+        {
+            Cursor cun = new Cursor(Properties.Resources.migoskotostra101.Handle);
+            this.Cursor = cun;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             string tempText = textBox1.Text;//gia tin periptosi pou exei pola kena , oxi mono ena

@@ -157,4 +157,25 @@
   <data name="migoskotostra101" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\migoskotostra (1).ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Fly_sound_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourses\Fly sound 1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Fly_sound_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourses\Fly sound 10.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Fly_sound_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourses\Fly sound 2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Fly_sound_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourses\Fly sound 5.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="skotostra2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourses\skotostra2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Squish_Sound_Effects_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourses\Squish-Sound-Effects 3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Quack_Sound_Effect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourses\Quack-Sound-Effect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

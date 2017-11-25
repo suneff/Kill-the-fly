@@ -165,6 +165,8 @@
             this.TransparencyKey = System.Drawing.Color.Transparent;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

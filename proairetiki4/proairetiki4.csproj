@@ -80,19 +80,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -114,12 +114,19 @@
     <Content Include="Resourses\bkimage.jpg" />
     <None Include="Resourses\fly_PNG3947.png" />
     <None Include="Resourses\download.jpg" />
+    <Content Include="Resourses\Fly sound 1.wav" />
+    <Content Include="Resourses\Fly sound 10.wav" />
+    <Content Include="Resourses\Fly sound 2.wav" />
+    <Content Include="Resourses\Fly sound 5.wav" />
     <Content Include="Resourses\migoskotostra.ico" />
     <Content Include="Resourses\migoskotostra.png" />
     <None Include="Resourses\skotostra - Copy.png" />
     <None Include="Resourses\pdkc2IQ.jpg" />
+    <None Include="Resourses\Quack-Sound-Effect.wav" />
     <Content Include="Resourses\skotostra.png" />
     <None Include="Resourses\step0001.jpg" />
+    <None Include="Resourses\Squish-Sound-Effects 3.wav" />
+    <None Include="Resourses\skotostra2.ico" />
     <Content Include="Resourses\Testing.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
