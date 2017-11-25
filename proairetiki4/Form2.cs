@@ -218,6 +218,10 @@ namespace proairetiki4
             {
                 Point p = new Point(Flys[i].Location.X + Flys[i].dx, Flys[i].Location.Y + Flys[i].dy);
                 Flys[i].Location = p;
+                if ((Flys[i].Location.X + Flys[i].Size.Width / 2 < 0)|| (Flys[i].Location.Y + Flys[i].Size.Height / 2 < 0)|| (Flys[i].Location.Y + Flys[i].Size.Height / 2 < 0)|| (Flys[i].Location.Y + Flys[i].Size.Height / 2 > this.Size.Height)|| (Flys[i].Location.X + Flys[i].Size.Width / 2 > this.Size.Width))
+                {
+                    randomPosition(i);
+                }
             }
         }
         private void button2_Click(object sender, EventArgs e)
