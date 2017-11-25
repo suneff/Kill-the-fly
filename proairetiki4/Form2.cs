@@ -15,7 +15,9 @@ namespace proairetiki4
 
     public partial class Form2 : Form
     {
+        Enemy[] Flys = new Enemy[3];
         Random r;
+        
         int time=60;
         int score=0;
         int dif=1;
@@ -26,6 +28,30 @@ namespace proairetiki4
         /* name conflict,using class User insted
         DataTable scores = new DataTable();
         */
+        public void NewFly()
+        {
+            //PictureBox Fly = new PictureBox();
+            for (int i = 0; i < Flys.Length; ++i)
+            {
+                this.Flys[i] = new Enemy();
+                this.Controls.Add(Flys[i]);
+                this.Flys[i].BackColor = System.Drawing.Color.Transparent;
+                this.Flys[i].BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                this.Flys[i].Image = global::proairetiki4.Properties.Resources.fly_PNG3947;
+                this.Flys[i].Location = new System.Drawing.Point(304, 251);
+                this.Flys[i].Name = "pictureBox" + (i + 2).ToString();
+                this.Flys[i].Size = new System.Drawing.Size(138, 113);
+                this.Flys[i].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                this.Flys[i].TabIndex = 0;
+                this.Flys[i].TabStop = false;
+                this.Flys[i].Click += new System.EventHandler(this.pictureBox1_Click_1);
+                this.Flys[i].MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+                this.Flys[i].Show();
+                this.Flys[i].Enabled = true;
+                //((System.ComponentModel.ISupportInitialize)(this.Flys[i])).BeginInit();
+            }
+
+        }
         public Form2(int dif, Form1 mainMenu) //pernaw to difficulty sto game
         {
             InitializeComponent();
@@ -33,6 +59,10 @@ namespace proairetiki4
             this.mainMenu = mainMenu;
             timer1.Interval = timer1.Interval / dif;
             maxspeed = 10 * dif;
+            NewFly();
+            Cursor cun = new Cursor(Properties.Resources.migoskotostra101.Handle);
+            this.Cursor = cun;
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -68,14 +98,29 @@ namespace proairetiki4
             
             randomPosition();
         }
-        private void randomPosition()
+        private void randomPosition(int idofFly=-1)
         {
-            pictureBox1.Hide();
-            dx =r.Next(-maxspeed, maxspeed);
-            dy = r.Next(-maxspeed, maxspeed);
-            Point p = new Point(r.Next(0, this.Width - pictureBox1.Width), r.Next(0, this.Height - pictureBox1.Height));
-            pictureBox1.Location = p;
-            pictureBox1.Show();
+            if (idofFly == -1) {
+                for (int i = 0; i < Flys.Length; ++i)
+                {
+                    Flys[i].Hide();
+                    Flys[i].dx = r.Next(-maxspeed, maxspeed);
+                    Flys[i].dy = r.Next(-maxspeed, maxspeed);
+                    Point p = new Point(r.Next(0, this.Width - Flys[i].Width), r.Next(0, this.Height - Flys[i].Height));
+                    Flys[i].Location = p;
+                    Flys[i].Show();
+                }
+            }
+            else
+            {
+                Flys[idofFly].Hide();
+                Flys[idofFly].dx = r.Next(-maxspeed, maxspeed);
+                Flys[idofFly].dy = r.Next(-maxspeed, maxspeed);
+                Point p = new Point(r.Next(0, this.Width - Flys[idofFly].Width), r.Next(0, this.Height - Flys[idofFly].Height));
+                Flys[idofFly].Location = p;
+                Flys[idofFly].Show();
+
+            }
         }
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
@@ -84,11 +129,14 @@ namespace proairetiki4
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+
+            Enemy tempFly = (Enemy)sender;
             timer1.Stop();
             score += dif * 10;
             label1.Text = score.ToString() + " points";
-            randomPosition();
+            randomPosition(int.Parse(tempFly.Name.Substring(10))-2);
             timer1.Start();
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -108,8 +156,11 @@ namespace proairetiki4
             {
                 timer1.Stop();
                 timer2.Stop();
-                pictureBox1.Enabled = false;
-                pictureBox1.Hide();
+                for (int i = 0; i < Flys.Length; ++i)
+                {
+                    Flys[i].Enabled = false;
+                    Flys[i].Hide();
+                }
                 button1.Enabled = true;
                 button1.Show();
                 button4.Enabled = true;
@@ -163,10 +214,12 @@ namespace proairetiki4
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            Point p = new Point(pictureBox1.Location.X+dx, pictureBox1.Location.Y+dy);
-            pictureBox1.Location = p;
+            for (int i = 0; i < Flys.Length; ++i)
+            {
+                Point p = new Point(Flys[i].Location.X + Flys[i].dx, Flys[i].Location.Y + Flys[i].dy);
+                Flys[i].Location = p;
+            }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             string tempText = textBox1.Text;//gia tin periptosi pou exei pola kena , oxi mono ena
@@ -224,5 +277,9 @@ namespace proairetiki4
             this.dif = dif;
             this.time = time;
         }
+    }
+    public partial class Enemy : PictureBox
+    {
+        public int dx = 0, dy = 0;
     }
 }

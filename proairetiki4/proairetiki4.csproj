@@ -108,10 +108,13 @@
   <ItemGroup>
     <None Include="Resourses\5.jpg" />
     <None Include="Resourses\1.jpg" />
+    <None Include="Resources\migoskotostra.ico" />
+    <None Include="Resources\migoskotostra %281%29.ico" />
     <Content Include="Resourses\aflyresize.png" />
     <Content Include="Resourses\bkimage.jpg" />
     <None Include="Resourses\fly_PNG3947.png" />
     <None Include="Resourses\download.jpg" />
+    <Content Include="Resourses\migoskotostra.ico" />
     <Content Include="Resourses\migoskotostra.png" />
     <None Include="Resourses\skotostra - Copy.png" />
     <None Include="Resourses\pdkc2IQ.jpg" />
