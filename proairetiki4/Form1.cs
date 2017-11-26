@@ -34,7 +34,7 @@ namespace proairetiki4
         {
             Form2 game = new Form2(dif, this);
             game.Show();
-            game.Closed += (s, args) => this.Show(); //otan kleinei to game kleinei emfanizetai h forma1
+            game.Closed += (s, args) => this.Show(); //otan kleinei to game emfanizetai h forma1
             this.Hide();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -45,10 +45,9 @@ namespace proairetiki4
          
         private void button4_Click(object sender, EventArgs e)
         {
-            //leaderboard form3
-            Form3 scoreboard = new Form3();//den pernao tpt gt 8a diabazi to arxio apo thn arxi
+            Form3 scoreboard = new Form3();
             scoreboard.Show();
-            scoreboard.Closed += (s, args) => this.Show(); //otan kleinei to scoreboard kleinei emfanizetai h forma1
+            scoreboard.Closed += (s, args) => this.Show(); //otan kleinei to scoreboard emfanizetai h forma1
             this.Hide();
         }
     }

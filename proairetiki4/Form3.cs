@@ -19,7 +19,7 @@ namespace proairetiki4
         {
             InitializeComponent();
             
-            if (File.Exists("Scores.json"))//an iparxi to arxio
+            if (File.Exists("Scores.json")) //an iparxei to arxeio
             {
                 richTextBox1.Text = "";
                 using (StreamReader r = new StreamReader("Scores.json"))
