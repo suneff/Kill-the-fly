@@ -62,7 +62,7 @@
             this.label1.Size = new System.Drawing.Size(39, 42);
             this.label1.TabIndex = 3;
             this.label1.Text = "0";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -75,7 +75,7 @@
             this.label2.Size = new System.Drawing.Size(97, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "60 seconds left";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            //this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button4
             // 
@@ -88,7 +88,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Leaderboard";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            //this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -114,7 +114,7 @@
             this.label3.Size = new System.Drawing.Size(370, 42);
             this.label3.TabIndex = 9;
             this.label3.Text = "Enter your nickname:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            //this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button2
             // 
@@ -163,7 +163,7 @@
             this.Name = "Form2";
             this.Text = "Form2";
             this.TransparencyKey = System.Drawing.Color.Transparent;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
+            //this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseUp);

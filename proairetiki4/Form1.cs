@@ -13,17 +13,11 @@ namespace proairetiki4
     public partial class Form1 : Form
     {
         int dif = 1; //initialize difficulty
-        bool flag = true; //if game is open
 
         public Form1()
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             dif = 2;
@@ -43,12 +37,6 @@ namespace proairetiki4
             game.Closed += (s, args) => this.Show(); //otan kleinei to game kleinei emfanizetai h forma1
             this.Hide();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             dif = 1;

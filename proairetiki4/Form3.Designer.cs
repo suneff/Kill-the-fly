@@ -42,7 +42,7 @@
             this.label1.Size = new System.Drawing.Size(725, 102);
             this.label1.TabIndex = 4;
             this.label1.Text = "LEADERBOARD";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // richTextBox1
             // 
@@ -57,7 +57,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(768, 315);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "NICKNAME SCORE";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+           // this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // Form3
             // 

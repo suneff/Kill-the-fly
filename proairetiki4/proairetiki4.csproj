@@ -110,6 +110,8 @@
     <None Include="Resourses\1.jpg" />
     <None Include="Resources\migoskotostra.ico" />
     <None Include="Resources\migoskotostra %281%29.ico" />
+    <None Include="Resources\skotostra2.cur" />
+    <None Include="Resources\test.ico" />
     <Content Include="Resourses\aflyresize.png" />
     <Content Include="Resourses\bkimage.jpg" />
     <None Include="Resourses\fly_PNG3947.png" />

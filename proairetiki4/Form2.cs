@@ -11,7 +11,6 @@ using System.Collections;
 using System.IO;
 using Newtonsoft.Json;
 using System.Media;
-using System.Threading; 
 namespace proairetiki4
 {
 
@@ -24,9 +23,12 @@ namespace proairetiki4
         int score=0;
         int dif=1;
         int count = 0;
-        int dx=0, dy=0;
         int maxspeed;
         Form1 mainMenu;
+        SoundPlayer sndfly;
+        SoundPlayer snd2;
+        SoundPlayer snd;
+        Cursor cur1,cur2;
         /* name conflict,using class User insted
         DataTable scores = new DataTable();
         */
@@ -46,7 +48,7 @@ namespace proairetiki4
                 this.Flys[i].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                 this.Flys[i].TabIndex = 0;
                 this.Flys[i].TabStop = false;
-                this.Flys[i].Click += new System.EventHandler(this.pictureBox1_Click_1);
+                //this.Flys[i].Click += new System.EventHandler(this.pictureBox1_Click_1);
                 this.Flys[i].MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
                 this.Flys[i].MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
                 this.Flys[i].MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -64,9 +66,12 @@ namespace proairetiki4
             timer1.Interval = timer1.Interval / dif;
             maxspeed = 10 * dif;
             NewFly();
-            Cursor cun = new Cursor(Properties.Resources.migoskotostra101.Handle);
-            this.Cursor = cun;
-
+            cur1  = new Cursor(Properties.Resources.migoskotostra101.Handle);
+            cur2 = new Cursor(Properties.Resources.skotostra2.Handle);
+            this.Cursor = cur1;
+            sndfly = new SoundPlayer(Properties.Resources.Fly_sound_10);
+            snd2 = new SoundPlayer(Properties.Resources.Squish_Sound_Effects_3);
+            snd = new SoundPlayer(Properties.Resources.Quack_Sound_Effect);
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -86,24 +91,10 @@ namespace proairetiki4
             button2.Hide();
             button2.Enabled = false;
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             randomPosition();
-            new System.Threading.Thread(() => {
-                SoundPlayer snd = new SoundPlayer(Properties.Resources.Fly_sound_10);
-                snd.Play();
-            }).Start();
+            sndfly.Play();
         }
         private void randomPosition(int idofFly=-1)
         {
@@ -129,11 +120,6 @@ namespace proairetiki4
 
             }
         }
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
 
@@ -143,32 +129,16 @@ namespace proairetiki4
             label1.Text = score.ToString() + " points";
             randomPosition(int.Parse(tempFly.Name.Substring(10))-2);
             timer1.Start();
-            new System.Threading.Thread(() => {
-                SoundPlayer snd2 = new SoundPlayer(Properties.Resources.Squish_Sound_Effects_3);
-                snd2.Play();
-            }).Start();
-
+            snd2.Play();
         }
         private void pictureBox1_MouseDown(object sender, EventArgs e)
         {
-            Cursor cun = new Cursor(Properties.Resources.skotostra2.Handle);
-            this.Cursor = cun;
+            this.Cursor = cur2;
         }
         private void pictureBox1_MouseUp(object sender, EventArgs e)
         {
-            Cursor cun = new Cursor(Properties.Resources.migoskotostra101.Handle);
-            this.Cursor = cun;
+            this.Cursor = cur1;
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer2_Tick(object sender, EventArgs e)
         {
             count++;
@@ -196,43 +166,11 @@ namespace proairetiki4
             }
 
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
             mainMenu.Show();
         }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            //kati paizei me to textbox, to emfanizei transparent
-        }
-
         private void timer3_Tick(object sender, EventArgs e)
         {
             for (int i = 0; i < Flys.Length; ++i)
@@ -248,18 +186,13 @@ namespace proairetiki4
 
         private void Form2_MouseDown(object sender, MouseEventArgs e)
         {
-            Cursor cun = new Cursor(Properties.Resources.skotostra2.Handle);
-            this.Cursor = cun;
-            new System.Threading.Thread(() => {
-                SoundPlayer snd = new SoundPlayer(Properties.Resources.Quack_Sound_Effect);
-                snd.Play();
-            }).Start();
+            this.Cursor = cur2;
+            snd.Play();
         }
 
         private void Form2_MouseUp(object sender, MouseEventArgs e)
         {
-            Cursor cun = new Cursor(Properties.Resources.migoskotostra101.Handle);
-            this.Cursor = cun;
+            this.Cursor = cur1;
         }
 
         private void button2_Click(object sender, EventArgs e)

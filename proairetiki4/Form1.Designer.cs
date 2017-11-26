@@ -92,7 +92,7 @@
             this.label1.Size = new System.Drawing.Size(759, 122);
             this.label1.TabIndex = 3;
             this.label1.Text = "KiLL ThE FLy";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button4
             // 
@@ -175,7 +175,7 @@
             this.MinimumSize = new System.Drawing.Size(852, 480);
             this.Name = "Form1";
             this.Text = "Kill The Fly!";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            //this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

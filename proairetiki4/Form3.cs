@@ -38,15 +38,5 @@ namespace proairetiki4
             }
             //this.scores = scores; too tired to fix this
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
